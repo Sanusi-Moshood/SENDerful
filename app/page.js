@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Calendar from './Calendar'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{' 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'}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -108,6 +109,8 @@ export default function Home() {
           </p>
         </a>
       </div>
+
+      <Calendar />
     </main>
   )
 }
