@@ -1,21 +1,29 @@
 import mongoose from "mongoose";
 
-// set isconnected to false 
-let isConnected = false
+ 
 
 export const connectToDB = async () => {
     // check if isconnected is true 
-    if(isConnected){
-        console.log('Mongo db is connected');
-        return
-    }
+    if (mongoose.connection.readyState === 1) {
+        // If already connected, return the existing connection
+        return mongoose.connection.db;
+      }
+    
 
     //if not try to connect to mongodb database 
+
     try {
-        await mongoose.connect()
-    } catch (error) {
-        
-    }
+        const db = await mongoose.connect(process.env.MONGODB_URI, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          useCreateIndex: true,
+        });
+    
+        return db.connection.db;
+      } catch (error) {
+        console.error('Error connecting to MongoDB:', error.message);
+        throw error;
+      }
+    };
 
-
-}
+ 
