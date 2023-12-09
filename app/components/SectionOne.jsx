@@ -27,7 +27,7 @@ export default function SectionOne() {
               />
             </div>
 
-            <div className=' max-w-[387px]  text-base font-semibold'>
+            <div className=' max-w-[387px]  text-base font-semibold tracking-[-0.48px] leading-6'>
               <p>
                 SENDerful is a non-profit organization serving individuals with
                 any intellectual, mental, or physical disability.
